@@ -3,7 +3,9 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
+<div class="text-right">
+    <a href="@Url.Action("Index","Admin")" type="button" class="btn btn-primary">+ Goto List</a>
+</div>
 <div class="card card-primary">
     <div class="card-header">
         <h3 class="card-title">Quick Example </h3>
