@@ -170,6 +170,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\Admin\AdminController.cs" />
+    <Compile Include="Controllers\Admin\Category\CategoryController.cs" />
+    <Compile Include="Controllers\Product\ProductController.cs" />
     <Compile Include="Controllers\User\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\User\BlogController.cs" />
@@ -2413,6 +2415,8 @@
     <Content Include="Views\Gallery\Gallery.cshtml" />
     <Content Include="Views\Reservation\Reservation.cshtml" />
     <Content Include="Views\Resmenu\Resmenu.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Product\ProductIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
