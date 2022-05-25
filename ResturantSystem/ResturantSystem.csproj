@@ -184,6 +184,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205250157183_added_table_category.cs" />
+    <Compile Include="Migrations\202205250157183_added_table_category.Designer.cs">
+      <DependentUpon>202205250157183_added_table_category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205250210426_added_table_category1.cs" />
+    <Compile Include="Migrations\202205250210426_added_table_category1.Designer.cs">
+      <DependentUpon>202205250210426_added_table_category1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -2433,6 +2442,14 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202205250157183_added_table_category.resx">
+      <DependentUpon>202205250157183_added_table_category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205250210426_added_table_category1.resx">
+      <DependentUpon>202205250210426_added_table_category1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

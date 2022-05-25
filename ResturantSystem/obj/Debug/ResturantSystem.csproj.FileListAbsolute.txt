@@ -208,3 +208,6 @@ D:\fourthsemproject\fourthsem\ResturantSystem\obj\Debug\ResturantSystem.csproj.C
 D:\fourthsemproject\fourthsem\ResturantSystem\obj\Debug\ResturantSystem.csproj.CopyComplete
 D:\fourthsemproject\fourthsem\ResturantSystem\obj\Debug\ResturantSystem.dll
 D:\fourthsemproject\fourthsem\ResturantSystem\obj\Debug\ResturantSystem.pdb
+D:\fourthsemproject\fourthsem\ResturantSystem\obj\Debug\ResturantSystem.Migrations.added_table_category.resources
+D:\fourthsemproject\fourthsem\ResturantSystem\obj\Debug\ResturantSystem.csproj.GenerateResource.cache
+D:\fourthsemproject\fourthsem\ResturantSystem\obj\Debug\ResturantSystem.Migrations.added_table_category1.resources
