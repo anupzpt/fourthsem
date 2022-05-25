@@ -34,20 +34,20 @@
                                 <h3>Book a table</h3>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input id="input_date" class="datepicker picker__input form-control" name="date" type="text" value="" equired data-error="Please enter Date">
+                                        <input type="date" id="input_date" class="datepicker picker__input form-control" required data-error="Please select Date" placeholder="Select Date">                          
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input id="input_time" class="time form-control picker__input" required data-error="Please enter time">
+                                        <input id="input_time" class="time form-control picker__input" required data-error="Please enter time" placeholder="Enter Time">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <select class="custom-select d-block form-control" id="person" required data-error="Please select Person">
-                                            <option disabled selected>Select Person*</option>
+                                        <select class="custom-select d-block form-control" id="person" required data-error="select Person">
+                                            <option disabled selected>Select No of People</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
