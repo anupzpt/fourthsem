@@ -7,13 +7,13 @@ namespace ResturantSystem.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class added_table_category : IMigrationMetadata
+    public sealed partial class added_table1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(added_table_category));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(added_table1));
         
         string IMigrationMetadata.Id
         {
-            get { return "202205250157183_added_table_category"; }
+            get { return "202205251319097_added_table1"; }
         }
         
         string IMigrationMetadata.Source

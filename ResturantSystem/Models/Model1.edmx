@@ -4,62 +4,45 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="resturantmgmtModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'resturantmgmt.dbo.menu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="menu">
+    <Schema Namespace="ResturantsystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FoodName" Type="varchar" MaxLength="50" />
-          <Property Name="FoodPrice" Type="varchar" MaxLength="20" />
-          <Property Name="FoodCategory" Type="varchar" MaxLength="50" />
-          <Property Name="FoodDetail" Type="varchar" MaxLength="70" />
+          <Property Name="FoodCategory" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="Action" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityContainer Name="resturantmgmtModelStoreContainer">
-          <EntitySet Name="menu" EntityType="Self.menu" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [menu].[Id] AS [Id], 
-    [menu].[FoodName] AS [FoodName], 
-    [menu].[FoodPrice] AS [FoodPrice], 
-    [menu].[FoodCategory] AS [FoodCategory], 
-    [menu].[FoodDetail] AS [FoodDetail]
-    FROM [dbo].[menu] AS [menu]</DefiningQuery>
-          </EntitySet>
+        <EntityContainer Name="ResturantsystemModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="resturantmgmtModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="menu">
+      <Schema Namespace="ResturantsystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ResturantsystemEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="Categories" EntityType="ResturantsystemModel.Category" />
+        </EntityContainer>
+        <EntityType Name="Category">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FoodName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="FoodPrice" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="FoodCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="FoodDetail" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="FoodCategory" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="resturantmgmtEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="menus" EntityType="Self.menu" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="resturantmgmtModelStoreContainer" CdmEntityContainer="resturantmgmtEntities">
-          <EntitySetMapping Name="menus">
-            <EntityTypeMapping TypeName="resturantmgmtModel.menu">
-              <MappingFragment StoreEntitySet="menu">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="FoodName" ColumnName="FoodName" />
-                <ScalarProperty Name="FoodPrice" ColumnName="FoodPrice" />
+        <EntityContainerMapping StorageEntityContainer="ResturantsystemModelStoreContainer" CdmEntityContainer="ResturantsystemEntities" >
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="ResturantsystemModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Action" ColumnName="Action" />
                 <ScalarProperty Name="FoodCategory" ColumnName="FoodCategory" />
-                <ScalarProperty Name="FoodDetail" ColumnName="FoodDetail" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

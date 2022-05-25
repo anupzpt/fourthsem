@@ -184,13 +184,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202205250157183_added_table_category.cs" />
-    <Compile Include="Migrations\202205250157183_added_table_category.Designer.cs">
-      <DependentUpon>202205250157183_added_table_category.cs</DependentUpon>
+    <Compile Include="Migrations\202205251310274_added_table.cs" />
+    <Compile Include="Migrations\202205251310274_added_table.Designer.cs">
+      <DependentUpon>202205251310274_added_table.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202205250210426_added_table_category1.cs" />
-    <Compile Include="Migrations\202205250210426_added_table_category1.Designer.cs">
-      <DependentUpon>202205250210426_added_table_category1.cs</DependentUpon>
+    <Compile Include="Migrations\202205251319097_added_table1.cs" />
+    <Compile Include="Migrations\202205251319097_added_table1.Designer.cs">
+      <DependentUpon>202205251319097_added_table1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -2444,11 +2444,14 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202205250157183_added_table_category.resx">
-      <DependentUpon>202205250157183_added_table_category.cs</DependentUpon>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202205251310274_added_table.resx">
+      <DependentUpon>202205251310274_added_table.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205250210426_added_table_category1.resx">
-      <DependentUpon>202205250210426_added_table_category1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202205251319097_added_table1.resx">
+      <DependentUpon>202205251319097_added_table1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

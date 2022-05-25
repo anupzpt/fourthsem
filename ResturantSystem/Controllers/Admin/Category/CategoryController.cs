@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ResturantSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,18 @@ namespace ResturantSystem.Controllers.Admin.Category
 {
     public class CategoryController : Controller
     {
+        ResturantsystemEntities db;
+        public CategoryController()
+        {
+            db = new ResturantsystemEntities();
+        }
         // GET: Category
         public ActionResult Index()
         {
+            //List<Category> all_data = db.Categories.ToList();
+            //return View(all_data);
             return View();
+
         }
 
         // GET: Category/Details/5

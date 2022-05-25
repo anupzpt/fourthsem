@@ -1,16 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="resturantmgmtModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="menu">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="FoodName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="FoodPrice" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="FoodCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="FoodDetail" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityContainer Name="resturantmgmtEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="menus" EntityType="Self.menu" />
-  </EntityContainer>
+<Schema Namespace="ResturantsystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ResturantsystemEntities" annotation:LazyLoadingEnabled="true" />
 </Schema>
