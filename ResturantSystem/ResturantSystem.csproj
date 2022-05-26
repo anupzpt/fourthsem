@@ -192,9 +192,16 @@
     <Compile Include="Migrations\202205251319097_added_table1.Designer.cs">
       <DependentUpon>202205251319097_added_table1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205260240326_added_table_contact.cs" />
+    <Compile Include="Migrations\202205260240326_added_table_contact.Designer.cs">
+      <DependentUpon>202205260240326_added_table_contact.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContactU.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
@@ -2455,6 +2462,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205251319097_added_table1.resx">
       <DependentUpon>202205251319097_added_table1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205260240326_added_table_contact.resx">
+      <DependentUpon>202205260240326_added_table_contact.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
