@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ResturantSystem.Controllers.Admin.Category
+namespace ResturantSystem.Controllers.Admin.Categories
 {
     public class CategoryController : Controller
     {
@@ -17,9 +17,8 @@ namespace ResturantSystem.Controllers.Admin.Category
         // GET: Category
         public ActionResult Index()
         {
-            //List<Category> all_data = db.Categories.ToList();
-            //return View(all_data);
-            return View();
+            List<Category> all_data = db.Categories.ToList();
+            return View(all_data);
 
         }
 
