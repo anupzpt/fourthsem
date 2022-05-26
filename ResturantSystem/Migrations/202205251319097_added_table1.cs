@@ -10,7 +10,7 @@ namespace ResturantSystem.Migrations
             Sql(@"Create table Category(
             Id int primary key identity(1,1),
             FoodCategory nvarchar(70) NOT NULL,
-            Action nvarchar(50) 
+           
 )");
         }
         

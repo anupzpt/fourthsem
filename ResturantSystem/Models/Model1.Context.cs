@@ -25,7 +25,7 @@ namespace ResturantSystem.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<ContactU> ContactUS { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
     }
 }

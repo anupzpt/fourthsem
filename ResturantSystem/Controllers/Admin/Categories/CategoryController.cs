@@ -2,6 +2,7 @@
 using ResturantSystem.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -30,70 +31,56 @@ namespace ResturantSystem.Controllers.Admin.Categories
             return View();
         }
 
-        // GET: Category/Create
+        [HttpPost]
+        public ActionResult AddData(Category recordsave)
+        {
+            db.Categories.Add(recordsave);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        // POST: Category/Create
+       
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Category/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
         // GET: Category/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int Id)
         {
-            return View();
+            Category data = db.Categories.Find(Id);
+
+            return View(data);
         }
 
-        // POST: Category/Edit/5
+        // POST: Admin/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult EditData(Category update)
         {
-            try
-            {
-                // TODO: Add update logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            // TODO: Add update logic here
+
+            db.Entry(update).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
-        // GET: Category/Delete/5
-        public ActionResult Delete(int id)
+        // GET: Admin/Delete/5
+        public ActionResult Delete(int Id)
         {
-            return View();
+            Category data = db.Categories.Find(Id);
+            return View(data);
         }
 
-        // POST: Category/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        // POST: Admin/Delete/5
+        
+        public ActionResult Deletedata(int Id)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            Category record = db.Categories.Find(Id);
+            db.Categories.Remove(record);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

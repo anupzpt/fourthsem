@@ -1,0 +1,45 @@
+﻿@model List<ResturantSystem.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .background {
+        background-color: white;
+    }
+
+    .card-header {
+        background-color: steelblue;
+        color: white;
+    }
+</style>
+<div class="background">
+
+    <div class="text-right ">
+        <a href="@Url.Action("Index","Category")" type="button" class="btn btn-primary mt-4 mr-4">+ Goto List</a>
+    </div>
+    <div class="card card-primary mt-4">
+        <div class="card-header">
+            <h3 class="card-title">Add Category</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        @using (Html.BeginForm("AddData", "Category", FormMethod.Post))
+        {
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="">FoodCategory</label>
+                    <input type="text" name="FoodCategory" class="form-control" id="foodcategory" placeholder="Enter Category">
+                </div>
+
+
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+            </div>
+        }
+    </div>
+
+</div>

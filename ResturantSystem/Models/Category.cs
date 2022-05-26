@@ -16,6 +16,5 @@ namespace ResturantSystem.Models
     {
         public int Id { get; set; }
         public string FoodCategory { get; set; }
-        public string Action { get; set; }
     }
 }
