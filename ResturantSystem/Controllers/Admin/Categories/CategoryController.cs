@@ -1,4 +1,5 @@
-﻿using ResturantSystem.Models;
+﻿
+using ResturantSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace ResturantSystem.Controllers.Admin.Categories
         public ActionResult Index()
         {
             List<Category> all_data = db.Categories.ToList();
+          
             return View(all_data);
 
         }
