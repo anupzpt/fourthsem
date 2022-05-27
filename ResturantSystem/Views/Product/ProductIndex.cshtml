@@ -1,49 +1,67 @@
-﻿
+﻿@model List<ResturantSystem.Models.ProductTable>
+
 @{
     ViewBag.Title = "ProductIndex";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int sn = 0;
 }
 
-<h2>ProductIndex</h2>
+<div class="background">
 
-<div class="card card-warning">
-    <div class="card-header">
-        <h3 class="card-title">General Elements</h3>
+
+    <div class="text-right">
+        <a href="@Url.Action("ProductIndex","Product")" type="button" class="btn btn-primary mt-4 mr-4"> +  Add Product</a>
     </div>
-    <!-- /.card-header -->
-    <div class="card-body">
-        <form>
-            <div class="row">
-                <div class="col-sm-6">
-                    <!-- text input -->
-                    <div class="form-group">
-                        <label>Text</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h4 class="card-title ">Product List</h4>
+
+                    <div class="card-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+
+                        </div>
                     </div>
                 </div>
-               
-            </div>
-         
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
 
-            <div class="row">
-                <div class="col-sm-6">
-                    <!-- select -->
-                    <div class="form-group">
-                        <label>Select</label>
-                        <select class="form-control">
-                            <option>option 1</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
-                        </select>
-                    </div>
+                        <tr>
+                            <th>SN</th>
+                            <th>ProductName</th>
+                            <th>FoodCategory</th>
+                            <th>ProductDetail</th>
+                            <th>ProductPrice</th>
+                            <th>ProductImage</th>
+                            <th>Action</th>
+
+                        </tr>
+
+                        @foreach (var data in Model)
+                        {
+                            <tr>
+                                <td>@(++sn)</td>
+                                <td>@(data.ProductName)  </td>
+                                <td>@(data.FoodCategory)  </td>
+                                <td>@(data.ProductDetail)  </td>
+                                <td>@(data.ProductPrice)  </td>
+                                <td>@(data.ProductImage)  </td>
+
+
+
+
+                            </tr>
+                        }
+                    </table>
                 </div>
-               
+                <!-- /.card-body -->
             </div>
-
-           
-        </form>
+            <!-- /.card -->
+        </div>
     </div>
-    <!-- /.card-body -->
+
 </div>
