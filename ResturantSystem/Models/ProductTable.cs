@@ -12,10 +12,13 @@ namespace ResturantSystem.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Category
+    public partial class ProductTable
     {
         public int Id { get; set; }
+        public string ProductName { get; set; }
         public string FoodCategory { get; set; }
-        public string Action { get; set; }
+        public string ProductDetail { get; set; }
+        public string ProductPrice { get; set; }
+        public string ProductImage { get; set; }
     }
 }

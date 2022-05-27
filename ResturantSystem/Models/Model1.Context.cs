@@ -27,5 +27,6 @@ namespace ResturantSystem.Models
     
         public virtual DbSet<ContactU> ContactUS { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<ProductTable> ProductTables { get; set; }
     }
 }
