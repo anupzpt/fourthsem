@@ -5,7 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="c458121841464f469ed23b6c0e8e1562" Name="Diagram1" >
+        <EntityTypeShape EntityType="ResturantsystemModel.ContactU" PointX="3.375" PointY="0.75" Width="2.5" />
         <EntityTypeShape EntityType="ResturantsystemModel.Category" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ResturantsystemModel.ProductTable" Width="1.5" PointX="0.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

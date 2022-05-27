@@ -1,0 +1,35 @@
+﻿@model ResturantSystem.Models.Category
+
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="card card-primary mt-4">
+    <div class="card-header">
+        <h3 class="card-title">Edit Category</h3>
+    </div>
+    @using (Html.BeginForm("EditData", "Category",FormMethod.Post))
+    {
+        <div class="card-body">
+            <input type="hidden" name="Id" value="@Model.Id" />
+
+            <div class="form-group">
+                <label for="">FoodCategory</label>
+                <br />
+                <input type="text" name="FoodCategory" value="@Model.FoodCategory" id="foodcategory">
+            </div>
+
+
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary" value="Submit" name="Submit">Submit</button>
+        </div>
+
+    }
+
+</div>
+

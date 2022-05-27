@@ -1,39 +1,90 @@
-﻿@*@model List<ResturantSystem.Models.Category>*@
+﻿@model List<ResturantSystem.Models.Category>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Category";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-}
-<div class="text-right ">
-    <a href="@Url.Action("Index","Admin")" type="button" class="btn btn-primary mt-4">+ Goto List</a>
-</div>
-<div class="card card-primary mt-4">
-    <div class="card-header">
-        <h3 class="card-title">Add Category</h3>
-    </div>
-    <!-- /.card-header -->
-    <!-- form start -->
-    <form id="quickForm">
-        <div class="card-body">
-            <div class="form-group">
-                <label for="">FoodCategory</label>
-                <input type="text" name="FoodCategory" class="form-control" id="foodcategory" placeholder="Enter Category">
-            </div>
-            @*<div class="form-group">
-                <label for=""></label>
-                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>*@
-            @*<div class="form-group mb-0">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
-                    <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.</label>
-                </div>
-            </div>*@
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-            <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
-        </div>
-    </form>
-</div>
+    int sn = 0;
 
+}
+<style>
+    .background {
+        background-color: white;
+    }
+
+    .card-header {
+        background-color: steelblue;
+        color: white;
+    }
+</style>
+
+<div class="background">
+
+
+    <div class="text-right">
+        <a href="@Url.Action("Create","Category")" type="button" class="btn btn-primary mt-4 mr-4"> +  Add Category</a>
+    </div>
+
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h4 class="card-title ">Category List</h4>
+
+                    <div class="card-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+
+                        <tr>
+                            <th>SN</th>
+                            <th>Category</th>
+                            <th>Action</th>
+
+                        </tr>
+
+                        @foreach (var data in Model)
+                        {
+                            <tr>
+                                <td>@(++sn)</td>
+                                <td>@(data.FoodCategory)  </td>
+                                <td><a href="@Url.Action("Edit", new {Id=data.Id})"><span class="fas fa-pencil"></span></a>
+                                <a type="button" href="@Url.Action("Delete", new {Id=data.Id})" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="fas fa-trash ml-3 text-red"></span></a></td>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Do you want to Delete ?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <a type="button" href="@Url.Action("Deletedata","Category", new {Id=data.Id})" class="btn btn-danger">Confirm</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </tr>
+                        }
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+    <!-- Button trigger modal -->
+   
+
+
+    <!-- /.row -->
+</div>

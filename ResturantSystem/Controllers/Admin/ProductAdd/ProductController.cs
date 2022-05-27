@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ResturantSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,17 @@ namespace ResturantSystem.Controllers.Product
 {
     public class ProductController : Controller
     {
+        ResturantsystemEntities db;
+        public ProductController()
+        {
+            db = new ResturantsystemEntities();
+        }
         // GET: Product
         public ActionResult ProductIndex()
         {
-            return View();
+            List<ProductTable> all_data = db.ProductTables.ToList();
+
+            return View(all_data);
         }
 
         // GET: Product/Details/5
@@ -21,7 +29,7 @@ namespace ResturantSystem.Controllers.Product
         }
 
         // GET: Product/Create
-        public ActionResult Create()
+        public ActionResult AddProduct()
         {
             return View();
         }
