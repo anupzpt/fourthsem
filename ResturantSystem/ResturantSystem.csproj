@@ -171,6 +171,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\Admin\AdminController.cs" />
     <Compile Include="Controllers\Admin\Categories\CategoryController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\Product\ProductController.cs" />
     <Compile Include="Controllers\User\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -2429,6 +2430,8 @@
     <Content Include="Views\Resmenu\Resmenu.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Product\ProductIndex.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\login_table.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
