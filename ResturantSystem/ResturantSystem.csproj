@@ -171,11 +171,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\Admin\AdminController.cs" />
     <Compile Include="Controllers\Admin\Categories\CategoryController.cs" />
-    <Compile Include="Controllers\Admin\ProductAdd\ProductController.cs" />
-    <Compile Include="Controllers\Admin\ContactUS\ContactUSController.cs" />
     <Compile Include="Controllers\Admin\Product\ProductController.cs" />
+    <Compile Include="Controllers\Admin\ContactUS\ContactUSController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\Product\ProductController.cs" />
     <Compile Include="Controllers\User\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\User\BlogController.cs" />

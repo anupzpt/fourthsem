@@ -17,9 +17,9 @@ namespace ResturantSystem.Controllers.Product
         // GET: Product
         public ActionResult ProductIndex()
         {
-            List<ProductTable> all_data = db.ProductTables.ToList();
-
-            return View(all_data);
+            
+            var Product = db.ProductTables.ToList();
+            return View(Product);
         }
 
         // GET: Product/Details/5
@@ -31,7 +31,14 @@ namespace ResturantSystem.Controllers.Product
         // GET: Product/Create
         public ActionResult AddProduct()
         {
+            var productlist = db.Categories.ToList();
+            ViewBag.productList = new SelectList(productlist, "Id", "FoodCategory");
             return View();
+        }
+        [HttpPost]
+        public ActionResult AddProduct(ProductTable product)
+        {
+            return RedirectToAction("ProductIndex");
         }
 
         // POST: Product/Create
@@ -51,14 +58,14 @@ namespace ResturantSystem.Controllers.Product
         }
 
         // GET: Product/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult EditProduct(int id)
         {
             return View();
         }
 
         // POST: Product/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult EditProductData(int id, FormCollection collection)
         {
             try
             {
@@ -73,14 +80,14 @@ namespace ResturantSystem.Controllers.Product
         }
 
         // GET: Product/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult DeleteProduct(int id)
         {
             return View();
         }
 
         // POST: Product/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult DeleteProductData(int id, FormCollection collection)
         {
             try
             {

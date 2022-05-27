@@ -1,48 +1,66 @@
-﻿
+﻿@model ResturantSystem.Models.ProductTable
 @{
     ViewBag.Title = "AddProduct";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="card card-warning">
-    <div class="card-header">
-        <h3 class="card-title">General Elements</h3>
+<style>
+    .background {
+        background-color: white;
+    }
+</style>
+<div class="background">
+
+    <div class="text-right ">
+        <a href="@Url.Action("ProductIndex","Product")" type="button" class="btn btn-warning mt-4 mr-4 ">+ Goto List</a>
     </div>
-    <!-- /.card-header -->
-    <div class="card-body">
-        <form>
-            <div class="row">
-                <div class="col-sm-6">
-                    <!-- text input -->
-                    <div class="form-group">
-                        <label>Text</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+    <div class="card card-warning mt-3">
+        <div class="card-header ">
+            <h3 class="card-title">General Elements</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            @using (Html.BeginForm("AddProduct", "Product", FormMethod.Post))
+            {
+                <div class="row">
+                    <div class="col-sm-6">
+
+                        <!-- text input -->
+                        <div class="form-group">
+                            <label>Product Name</label>
+                            <input type="text" name="ProductName" class="form-control" id="productname" placeholder="Enter Product Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="">FoodCategory</label>
+                            @Html.DropDownList("ProductList", null, "Select Product", htmlAttributes: new { @Name = "FoodCategory" ,@class="form-control"})
+                            <br />
+                        </div>
+                        <div class="form-group">
+                            <label for="">Product Detail</label>
+                            <input type="text" class="form-control" name="ProductDetail" id="productdetail" placeholder="Enter Detail of food">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="">Product Price</label>
+                            <input type="text" name="ProductPrice" class="form-control" id="productprice" placeholder="Enter Price of Product">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Choose Image</label>
+                            <br />
+
+                            <input type="file" value="Choose a Image" name="SelectedImg">
+                        </div>
+                        <br />
+
+                        <button type="submit" class="btn btn-warning ml-5" value="Submit">Submit</button>
+
                     </div>
+
                 </div>
 
-            </div>
-
-
-            <div class="row">
-                <div class="col-sm-6">
-                    <!-- select -->
-                    <div class="form-group">
-                        <label>Select</label>
-                        <select class="form-control">
-                            <option>option 1</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
-                        </select>
-                    </div>
-                </div>
-
-            </div>
-
-
-        </form>
+            }
+        </div>
+        <!-- /.card-body -->
     </div>
-    <!-- /.card-body -->
+
 </div>
-

@@ -11,7 +11,6 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FoodCategory" Type="nvarchar" MaxLength="70" Nullable="false" />
-          <Property Name="Action" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="ContactUS">
           <Key>
@@ -64,7 +63,6 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FoodCategory" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
-          <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ProductTable">
           <Key>
@@ -97,7 +95,6 @@
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="ResturantsystemModel.Category">
               <MappingFragment StoreEntitySet="Category">
-                <ScalarProperty Name="Action" ColumnName="Action" />
                 <ScalarProperty Name="FoodCategory" ColumnName="FoodCategory" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
