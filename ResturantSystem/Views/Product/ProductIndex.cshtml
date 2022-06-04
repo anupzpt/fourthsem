@@ -5,20 +5,34 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     int sn = 0;
 }
+<style>
+    .background {
+        background-color: white;
+    }
 
+    .btn {
+        font-weight: 500;
+        color: white;
+    }
+
+    .card-title {
+        font-size: 20px;
+        color: white;
+    }
+</style>
 <div class="background">
 
 
     <div class="text-right">
-        <a href="@Url.Action("AddProduct","Product")" type="button" class="btn btn-warning mt-4 mr-4"> +  Add Product</a>
+        <a href="@Url.Action("AddProduct","Product")" type="button" class="btn btn-warning mt-2 mr-3"> +  Add Product</a>
     </div>
 
     <!-- /.row -->
     <div class="row">
         <div class="col-12">
-            <div class="card mt-4">
+            <div class="card mt-2 card-warning">
                 <div class="card-header">
-                    <h4 class="card-title ">Product List</h4>
+                    <h4 class="card-title  ">Product List</h4>
 
                     <div class="card-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
@@ -49,7 +63,9 @@
                             <td>@(data.FoodCategory)  </td>
                             <td>@(data.ProductDetail)  </td>
                             <td>@(data.ProductPrice)  </td>
-                            <td>@(data.ProductImage)  </td>
+                            <td>
+                                <img src="@(data.ProductImage!=null?Url.Content(data.ProductImage):"")" height="100" width="100" />
+                            </td>
 
                             <td>
                                 <a href="@Url.Action("EditProduct", new {Id=data.Id})"><span class="fas fa-pencil"></span></a>

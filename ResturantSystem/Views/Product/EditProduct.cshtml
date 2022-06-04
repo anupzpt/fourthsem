@@ -1,0 +1,128 @@
+﻿@model ResturantSystem.Models.ProductTable
+
+@{
+    ViewBag.Title = "EditProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .background {
+        background-color: white;
+    }
+
+    .btn {
+        font-weight: 500;
+        color: white;
+    }
+
+    .card-title {
+        font-size: 20px;
+        color: white;
+    }
+
+    /*.ImageBox {
+        margin-top: 40px;
+        margin-left: 50px;
+
+    }*/
+    #img-preview {
+        margin-top: 60px;
+        margin-left: 70px;
+        display: none;
+        width: 350px;
+        height: 300px;
+    }
+
+    #img-preview {
+        width: 100%;
+        height: 100%;
+        display: block;
+        
+    }
+    .img{
+        width:100%;
+        height:100%;
+    }
+</style>
+<div class="background">
+
+    <div class="text-right ">
+        <a href="@Url.Action("ProductIndex","Product")" type="button" class="btn btn-warning mt-2 mr-3 ">+ Goto Product List</a>
+    </div>
+    <div class="card card-warning mt-2">
+        <div class="card-header ">
+            <h3 class="card-title ml-2">Update Product</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body ml-3">
+            @using (Html.BeginForm("EditProductData", "Product", FormMethod.Post, new { @class = "", @enctype = "multipart/form-data" }))
+            {
+                <div class="row">
+                    <div class="col-sm-6">
+
+                        <!-- text input -->
+
+                        <input type="hidden" name="Id" value="@Model.Id" />
+
+                        <div class="form-group">
+                            <label>Product Name</label>
+                            <input type="text" name="ProductName" class="form-control  mt-1" id="productname" value="@Model.ProductName" placeholder="Enter Product Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="">FoodCategory</label>
+                            @Html.DropDownListFor(m => m.FoodCategory, ViewData["productList"] as IEnumerable<SelectListItem>, new { @class = "form-control", @required = "required" })
+
+                        </div>
+                        <div class="form-group">
+                            <label for="">Product Detail</label>
+                            <input type="text" class="form-control  mt-1" name="ProductDetail" id="productdetail" value="@Model.ProductDetail" placeholder="Enter Detail of food">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="">Product Price</label>
+                            <input type="text" name="ProductPrice" class="form-control  mt-1" id="productprice" value="@Model.ProductPrice" placeholder="Enter Price of Product">
+                        </div>
+                        <div class="form-group">
+                            <label>Choose Image</label>
+                            <input class="form-control mt-1" type="file" id="choose-file" accept="image/*" value="@Model.ProductImage" name="SelectedImg">
+                            <input class="form-control mt-1" type="text" id="choose-file" accept="image/*" value="@Model.ProductImage" name="ProductImage" hidden>
+
+                        </div>
+                        <br />
+
+                        <button type="submit" class="btn btn-warning ml-2" value="Submit">Submit</button>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="ImageBox img-thumbnail" id="img-preview">
+                            <img class="img" src="@Url.Content(Model.ProductImage)"  />
+
+
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+</div>
+
+<script>
+    const chooseFile = document.getElementById("choose-file");
+    const imgPreview = document.getElementById("img-preview");
+    chooseFile.addEventListener("change", function () {
+        getImgData();
+    });
+    function getImgData() {
+        const files = chooseFile.files[0];
+        if (files) {
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(files);
+            fileReader.addEventListener("load", function () {
+                imgPreview.style.display = "block";
+                imgPreview.innerHTML = '<img src="' + this.result + '" />';
+            });
+        }
+    }
+</script>

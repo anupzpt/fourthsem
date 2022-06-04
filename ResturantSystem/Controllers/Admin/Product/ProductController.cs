@@ -1,6 +1,8 @@
 ﻿using ResturantSystem.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -17,30 +19,37 @@ namespace ResturantSystem.Controllers.Product
         // GET: Product
         public ActionResult ProductIndex()
         {
-            
             var Product = db.ProductTables.ToList();
             return View(Product);
         }
-
         // GET: Product/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
-
         // GET: Product/Create
         public ActionResult AddProduct()
         {
             var productlist = db.Categories.ToList();
-            ViewBag.productList = new SelectList(productlist, "Id", "FoodCategory");
+            ViewBag.productList = new SelectList(productlist, "FoodCategory", "FoodCategory");
             return View();
         }
         [HttpPost]
-        public ActionResult AddProduct(ProductTable product)
+        public ActionResult AddProduct(ProductTable product, HttpPostedFileBase SelectedImg)
         {
+            string path = Server.MapPath("~/uploads");
+            string file_name = SelectedImg.FileName;
+            string new_path = path + "/" + file_name;
+            if (Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            SelectedImg.SaveAs(new_path);
+            product.ProductImage = "~/uploads/" + file_name ;
+            db.ProductTables.Add(product);
+            db.SaveChanges();
             return RedirectToAction("ProductIndex");
         }
-
         // POST: Product/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
@@ -56,49 +65,61 @@ namespace ResturantSystem.Controllers.Product
                 return View();
             }
         }
-
         // GET: Product/Edit/5
-        public ActionResult EditProduct(int id)
+        public ActionResult EditProduct(int Id)
         {
-            return View();
+            var productlist = db.Categories.ToList();
+            ViewData["productList"] = new SelectList(productlist, "FoodCategory", "FoodCategory");
+            ProductTable data = db.ProductTables.Find(Id);
+            return View(data);
         }
-
         // POST: Product/Edit/5
         [HttpPost]
-        public ActionResult EditProductData(int id, FormCollection collection)
+        public ActionResult EditProductData(ProductTable product, HttpPostedFileBase SelectedImg)
         {
-            try
+            ProductTable data = db.ProductTables.Find(product.Id);
+            data.ProductName = product.ProductName;
+            data.ProductPrice = product.ProductPrice;
+            data.ProductDetail = product.ProductDetail;
+            data.FoodCategory = product.FoodCategory;
+            if (SelectedImg != null)
             {
-                // TODO: Add update logic here
+                string path = Server.MapPath("~/uploads");
+                string file_name = SelectedImg.FileName;
+                string new_path = path + "/" + file_name;
+                if (Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                SelectedImg.SaveAs(new_path);
+                data.ProductImage = "~/uploads/" + file_name;
+            }
+            else
+            {
+                data.ProductImage = product.ProductImage;
+            }
+            db.Entry(data).State = EntityState.Modified;
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            //db.Entry(data).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("ProductIndex");
         }
 
         // GET: Product/Delete/5
-        public ActionResult DeleteProduct(int id)
+        public ActionResult DeleteProduct(int Id)
         {
-            return View();
+            ProductTable data = db.ProductTables.Find(Id);
+            return View(data);
         }
 
         // POST: Product/Delete/5
-        [HttpPost]
-        public ActionResult DeleteProductData(int id, FormCollection collection)
+     
+        public ActionResult DeleteProductData(int Id)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            ProductTable data = db.ProductTables.Find(Id);
+            db.ProductTables.Remove(data);
+            db.SaveChanges();
+            return RedirectToAction("ProductIndex");
         }
     }
 }
