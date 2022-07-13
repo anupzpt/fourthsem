@@ -171,6 +171,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\Admin\AdminController.cs" />
     <Compile Include="Controllers\Admin\Categories\CategoryController.cs" />
+    <Compile Include="Controllers\Admin\Discount\DiscountController.cs" />
     <Compile Include="Controllers\Admin\Product\ProductController.cs" />
     <Compile Include="Controllers\Admin\ContactUS\ContactUSController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -2457,6 +2458,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="uploads\" />
+    <Folder Include="Views\Discount\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
