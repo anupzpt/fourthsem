@@ -1,0 +1,85 @@
+﻿@model List<ResturantSystem.Models.DiscountTable>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int sn = 0;
+}
+
+
+
+<div class="background">
+
+
+    <div class="text-right">
+        <a href="@Url.Action("AddDiscount","Discount")" type="button" class="btn btn-warning mt-2 mr-3"> +  Discount For Product</a>
+    </div>
+
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-2 card-warning">
+                <div class="card-header">
+                    <h4 class="card-title  ">Product List</h4>
+
+                    <div class="card-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+
+                        <tr>
+                            <th>SN</th>
+                            <th>FoodCategory</th>
+                            <th>ProductName</th>
+                            <th>OfferPercent</th>
+                            <th>Detail</th>
+                            <th>Action</th>
+
+                        </tr>
+
+                        @*@foreach (var data in Model)
+                        {
+                            <tr>
+                                <td>@(++sn)</td>
+                                <td>@(data.ProductName)  </td>
+                                <td>@(data.FoodCategory)  </td>
+                                <td>@(data.OfferPercent)  </td>
+                                <td>@(data.Detail)  </td>
+                                <td>
+                                    <a href="@Url.Action("EditProduct", new {Id=data.Id})"><span class="fas fa-pencil"></span></a>
+                                    <a type="button" href="@Url.Action("DeleteProduct", new {Id=data.Id})" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="fas fa-trash ml-3 text-red"></span></a>
+                                </td>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Do you want to Delete ?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <a type="button" href="@Url.Action("DeleteProductData","Product", new {Id=data.Id})" class="btn btn-danger">Confirm</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </tr>
+                        }*@
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+
+</div>

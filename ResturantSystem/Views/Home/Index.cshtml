@@ -1,4 +1,5 @@
-﻿<!-- Start slides -->
+﻿@model List<ResturantSystem.Models.Category>
+<!-- Start slides -->
 <div id="slides" class="cover-slides">
     <ul class="slides-container">
         <li class="text-center">
@@ -103,9 +104,12 @@
                 <div class="special-menu text-center">
                     <div class="button-group filter-button-group">
                         <button class="active" data-filter="*">All</button>
-                        <button data-filter=".drinks">Drinks</button>
-                        <button data-filter=".lunch">Lunch</button>
-                    </div>
+                        <button data-filter=".drinks">Drinks</button> 
+                        @foreach (var data in Model)
+                        {
+
+                        }
+                        </div>
                 </div>
             </div>
         </div>
@@ -249,7 +253,7 @@
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-4">
                     <a class="lightbox" href="~/Content/resturant/images/gallery-img-05.jpg">
-                        <img class="img-fluid" src="~/Content/resturant/images/gallery-img-05.jpg" alt="Gallery Images" >
+                        <img class="img-fluid" src="~/Content/resturant/images/gallery-img-05.jpg" alt="Gallery Images">
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-4">

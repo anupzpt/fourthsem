@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ResturantSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,15 @@ namespace ResturantSystem.Controllers
 {
     public class HomeController : Controller
     {
+        ResturantsystemEntities db;
+        public HomeController()
+        {
+            db = new ResturantsystemEntities();
+        }
         public ActionResult Index()
         {
-            return View();
+            var category = db.Categories.ToList();
+            return View(category);
         }
 
         public ActionResult About()
@@ -19,12 +26,13 @@ namespace ResturantSystem.Controllers
 
             return View();
         }
-
+      
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
             return View();
         }
+       
     }
 }

@@ -11,7 +11,16 @@ namespace ResturantSystem.Controllers.Admin.Discount
     {
         ResturantsystemEntities db;
         // GET: Discount
+        public DiscountController()
+        {
+            db = new ResturantsystemEntities();
+        }
         public ActionResult Index()
+        {
+            var discount = db.DiscountTables.ToList();
+            return View(discount);
+        }
+     public ActionResult AddDiscount()
         {
             return View();
         }

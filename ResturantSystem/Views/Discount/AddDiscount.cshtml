@@ -1,0 +1,91 @@
+﻿@model ResturantSystem.Models.DiscountTable
+@{
+    ViewBag.Title = "AddDiscount";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .background {
+        background-color: white;
+    }
+
+    .btn {
+        font-weight: 500;
+        color: white;
+    }
+
+    .card-title {
+        font-size: 20px;
+        color: white;
+    }
+
+    /*.ImageBox {
+        margin-top: 40px;
+        margin-left: 50px;
+
+    }*/
+    #img-preview {
+        margin-top: 60px;
+        margin-left: 70px;
+        display: none;
+        width: 350px;
+        height: 300px;
+    }
+
+        #img-preview img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+</style>
+<div class="background">
+
+    <div class="text-right ">
+        <a href="@Url.Action("Index","Discount")" type="button" class="btn btn-warning mt-2 mr-3 ">+ Goto List</a>
+    </div>
+    <div class="card card-warning mt-2">
+        <div class="card-header ">
+            <h3 class="card-title ml-2">Product List</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body ml-3">
+            @using (Html.BeginForm("AddDiscount", "Discount", FormMethod.Post))
+            {
+                <div class="row">
+                    <div class="col-sm-6">
+
+                        <!-- text input -->
+
+                        <div class="form-group">
+                            <label for="">FoodCategory</label>
+                            @*  @Html.DropDownList("ProductList", null, "Select Category", htmlAttributes: new { @Name = "FoodCategory", @class = "form-control  mt-1" })*@
+
+                        </div>
+                        <div class="form-group">
+                            <label for="">Product Name</label>
+                            <input type="text" class="form-control  mt-1" name="ProductName" id="productname" placeholder="Enter Detail of food">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="">Offer Percent</label>
+                            <input type="text" name="OfferPercent" class="form-control  mt-1" id="offerpercent" placeholder="Enter Offer Percent">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Detail</label>
+                            <input type="text" name="Detail" class="form-control  mt-1" id="detail" placeholder="Enter Detail of Discount">
+                        </div>
+                        <br />
+
+                        <button type="submit" class="btn btn-warning ml-2" value="Submit">Submit</button>
+
+                    </div>
+                  
+                </div>
+
+            }
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+</div>
+
