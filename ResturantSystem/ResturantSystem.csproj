@@ -2463,6 +2463,7 @@
     <Content Include="Views\Product\EditProduct.cshtml" />
     <Content Include="Views\Discount\Index.cshtml" />
     <Content Include="Views\Discount\AddDiscount.cshtml" />
+    <Content Include="Views\Discount\EditDiscount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

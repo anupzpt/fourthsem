@@ -94,10 +94,6 @@ namespace ResturantSystem.Controllers.Product
                 SelectedImg.SaveAs(new_path);
                 data.ProductImage = "~/uploads/" + file_name;
             }
-            else
-            {
-                data.ProductImage = product.ProductImage;
-            }
             db.Entry(data).State = EntityState.Modified;
 
             //db.Entry(data).State = System.Data.Entity.EntityState.Modified;

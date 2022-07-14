@@ -58,12 +58,12 @@
 
                         <div class="form-group">
                             <label for="">FoodCategory</label>
-                            @*  @Html.DropDownList("ProductList", null, "Select Category", htmlAttributes: new { @Name = "FoodCategory", @class = "form-control  mt-1" })*@
+                              @Html.DropDownList("Categories", null, "Select Category", htmlAttributes: new { @Name = "FoodCategory", @class = "form-control  mt-1" })
 
                         </div>
                         <div class="form-group">
                             <label for="">Product Name</label>
-                            <input type="text" class="form-control  mt-1" name="ProductName" id="productname" placeholder="Enter Detail of food">
+                            @Html.DropDownList("productTables", null, "Select Product Name", htmlAttributes: new { @Name = "ProductName", @class = "form-control  mt-1" })
 
                         </div>
                         <div class="form-group">
