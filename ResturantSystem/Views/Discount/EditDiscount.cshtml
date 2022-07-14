@@ -18,29 +18,57 @@
         font-size: 20px;
         color: white;
     }
-
-    /*.ImageBox {
-        margin-top: 40px;
-        margin-left: 50px;
-
-    }*/
-    #img-preview {
-        margin-top: 60px;
-        margin-left: 70px;
-        display: none;
-        width: 350px;
-        height: 300px;
-    }
-
-    #img-preview {
-        width: 100%;
-        height: 100%;
-        display: block;
-    }
-
-    .img {
-        width: 100%;
-        height: 100%;
-    }
 </style>
 
+<div class="background">
+
+    <div class="text-right ">
+        <a href="@Url.Action("Index","Discount")" type="button" class="btn btn-warning mt-2 mr-3 ">+ Goto Discount List</a>
+    </div>
+    <div class="card card-warning mt-2">
+        <div class="card-header ">
+            <h3 class="card-title ml-2">Update Discount</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body ml-3">
+            @using (Html.BeginForm("EditDiscountData", "Discount", FormMethod.Post))
+           
+            {
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <!-- text input -->
+                    <input type="hidden" name="Id" value="@Model.Id" />
+                    <div class="form-group">
+                        <label for="">FoodCategory</label>
+                        @Html.DropDownListFor(m => m.FoodCategory, ViewData["Categories"] as IEnumerable<SelectListItem>, new { @class = "form-control", @required = "required" })
+
+                    </div>
+                    <div class="form-group">
+                        <label for="">Product Name</label>
+                        @Html.DropDownListFor(m => m.ProductName, ViewData["productTables"] as IEnumerable<SelectListItem>, new { @class = "form-control", @required = "required" })
+
+                    </div>
+                    <div class="form-group">
+                        <label for="">Offer Percent</label>
+                        <input type="text" name="OfferPercent" class="form-control  mt-1" id="offerpercent" placeholder="Enter Offer Percent">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Detail</label>
+                        <input type="text" name="Detail" class="form-control  mt-1" id="detail" placeholder="Enter Detail of Discount">
+                    </div>
+                    <br />
+
+                    <button type="submit" class="btn btn-warning ml-2" value="Submit">Submit</button>
+
+                </div>
+
+              
+            </div>
+
+            }
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+</div>

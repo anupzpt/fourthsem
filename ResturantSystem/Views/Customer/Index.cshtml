@@ -1,0 +1,79 @@
+﻿@model List<ResturantSystem.Models.CustomerTable>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int sn = 0;
+}
+<style>
+    .background {
+        background-color: white;
+    }
+
+    .btn {
+        font-weight: 500;
+        color: white;
+    }
+
+    .card-title {
+        font-size: 20px;
+        color: white;
+    }
+</style>
+<div class="background">
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-2 card-warning">
+                <div class="card-header">
+                    <h4 class="card-title  ">Customer Detail</h4>
+
+                    <div class="card-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+
+                        <tr>
+                            <th>SN</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Contactno</th>
+                            <th>Address</th>
+                            <th>Email</th>
+                            <th>Status</th>
+
+                        </tr>
+
+                        @foreach (var data in Model)
+                        {
+                        <tr>
+                            <td>@(++sn)</td>
+                            <td>@(data.Username)  </td>
+                            <td>@(data.Password)  </td>
+                            <td>@(data.Contactno)  </td>
+                            <td>@(data.Address)  </td>
+                            <td>@(data.Email)  </td>
+                            <td>
+                                <a href="@Url.Action("Status", new {Id=data.Id})"><span class="fa-solid fa-circle-xmark text-green fa-2x"></span></a>
+                             
+                                
+                            </td>
+
+
+
+                        </tr>
+                        }
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+
+</div>
+

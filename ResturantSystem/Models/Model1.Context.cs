@@ -29,5 +29,6 @@ namespace ResturantSystem.Models
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<ProductTable> ProductTables { get; set; }
         public virtual DbSet<DiscountTable> DiscountTables { get; set; }
+        public virtual DbSet<CustomerTable> CustomerTables { get; set; }
     }
 }
