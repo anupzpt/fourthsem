@@ -24,7 +24,6 @@ namespace ResturantSystem.Controllers.Admin.Customer
         {
 
             var Customer = db.CustomerTables.ToList();
-
             return View(Customer);
         }
     }
