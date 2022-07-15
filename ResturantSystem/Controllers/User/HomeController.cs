@@ -17,7 +17,9 @@ namespace ResturantSystem.Controllers
         public ActionResult Index()
         {
             var category = db.Categories.ToList();
-            return View(category);
+            ViewBag.category = new SelectList(category, "FoodCategory", "FoodCategory");
+            var product = db.ProductTables.ToList();
+            return View(product);
         }
 
         public ActionResult About()

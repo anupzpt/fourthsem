@@ -38,16 +38,21 @@ namespace ResturantSystem.Controllers.Admin.Discount
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        public ActionResult Edit(int Id)
+        public ActionResult EditDiscount(int Id)
         {
-            DiscountTable data = db.DiscountTables.Find(Id);
+            var Categories = db.Categories.ToList();
+            ViewData["Categories"] = new SelectList(Categories, "FoodCategory", "FoodCategory");
+            var productTables = db.ProductTables.ToList();
+            ViewData["productTables"] = new SelectList(productTables, "ProductName", "ProductName");
 
+            DiscountTable data = db.DiscountTables.Find(Id);
             return View(data);
+          
         }
 
         // POST: Admin/Edit/5
         [HttpPost]
-        public ActionResult EditData(DiscountTable update)
+        public ActionResult EditDiscountData(DiscountTable update)
         {
 
             // TODO: Add update logic here

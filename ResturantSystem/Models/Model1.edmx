@@ -22,6 +22,17 @@
           <Property Name="Phone_no" Type="int" Nullable="false" />
           <Property Name="Message" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
+        <EntityType Name="CustomerTables">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contactno" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="DiscountTable">
           <Key>
             <PropertyRef Name="Id" />
@@ -46,6 +57,7 @@
         <EntityContainer Name="ResturantsystemModelStoreContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ContactUS" EntityType="Self.ContactUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerTables" EntityType="Self.CustomerTables" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DiscountTable" EntityType="Self.DiscountTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductTable" EntityType="Self.ProductTable" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -58,6 +70,7 @@
           <EntitySet Name="Categories" EntityType="ResturantsystemModel.Category" />
           <EntitySet Name="ProductTables" EntityType="ResturantsystemModel.ProductTable" />
           <EntitySet Name="DiscountTables" EntityType="ResturantsystemModel.DiscountTable" />
+          <EntitySet Name="CustomerTables" EntityType="ResturantsystemModel.CustomerTable" />
         </EntityContainer>
         <EntityType Name="ContactU">
           <Key>
@@ -96,6 +109,17 @@
           <Property Name="ProductName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="OfferPercent" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Detail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CustomerTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contactno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -141,6 +165,18 @@
                 <ScalarProperty Name="OfferPercent" ColumnName="OfferPercent" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="FoodCategory" ColumnName="FoodCategory" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerTables">
+            <EntityTypeMapping TypeName="ResturantsystemModel.CustomerTable">
+              <MappingFragment StoreEntitySet="CustomerTables">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Contactno" ColumnName="Contactno" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

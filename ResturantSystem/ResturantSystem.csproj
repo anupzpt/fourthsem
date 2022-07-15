@@ -171,6 +171,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\Admin\AdminController.cs" />
     <Compile Include="Controllers\Admin\Categories\CategoryController.cs" />
+    <Compile Include="Controllers\Admin\Customer\CustomerController.cs" />
     <Compile Include="Controllers\Admin\Discount\DiscountController.cs" />
     <Compile Include="Controllers\Admin\Product\ProductController.cs" />
     <Compile Include="Controllers\Admin\ContactUS\ContactUSController.cs" />
@@ -210,6 +211,10 @@
     <Compile Include="Migrations\202207131017484_discounttable.Designer.cs">
       <DependentUpon>202207131017484_discounttable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202207141615081_customertable.cs" />
+    <Compile Include="Migrations\202207141615081_customertable.Designer.cs">
+      <DependentUpon>202207141615081_customertable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202207150331182_Enrollment.cs" />
     <Compile Include="Migrations\202207150331182_Enrollment.Designer.cs">
       <DependentUpon>202207150331182_Enrollment.cs</DependentUpon>
@@ -220,6 +225,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ContactU.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomerTable.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DiscountTable.cs">
@@ -2478,6 +2486,7 @@
     <Content Include="Views\Enrollment\Index.cshtml" />
     <Content Include="Views\UserLogin\Index.cshtml" />
     <Content Include="Views\UserLogin\Welcome.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2514,6 +2523,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202207131017484_discounttable.resx">
       <DependentUpon>202207131017484_discounttable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202207141615081_customertable.resx">
+      <DependentUpon>202207141615081_customertable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202207150331182_Enrollment.resx">
       <DependentUpon>202207150331182_Enrollment.cs</DependentUpon>
