@@ -175,7 +175,6 @@
     <Compile Include="Controllers\Admin\Discount\DiscountController.cs" />
     <Compile Include="Controllers\Admin\Product\ProductController.cs" />
     <Compile Include="Controllers\Admin\ContactUS\ContactUSController.cs" />
-    <Compile Include="Controllers\Admin\SignupController.cs" />
     <Compile Include="Controllers\EnrollmentController.cs" />
     <Compile Include="Controllers\UserLoginController.cs" />
     <Compile Include="Controllers\User\AboutController.cs" />
