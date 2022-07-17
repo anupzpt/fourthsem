@@ -26,7 +26,9 @@ namespace ResturantSystem.Controllers
             if (Request.HttpMethod == "POST")
             {
                 Enroll er = new Enroll();
-                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-K82V98C\\SQLEXPRESS;Integrated Security=true;Initial Catalog=Resturantsystem"))
+                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-TKCK2P7\\SQLEXPRESS;Integrated Security=true;Initial Catalog=Resturantsystem"))
+                            //public static string constring = @"Data Source=DESKTOP-RBKCL90\SQLEXPRESS;Initial Catalog=ResturantSystem;Integrated Security=True";
+
                 {
                     using (SqlCommand cmd = new SqlCommand("SP_EnrollDetail", con))
                     {

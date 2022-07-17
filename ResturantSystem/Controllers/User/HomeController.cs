@@ -16,6 +16,8 @@ namespace ResturantSystem.Controllers
         }
         public ActionResult Index()
         {
+            var cart = db.AddToCarts.ToList();
+            ViewBag.cart = cart.Count();
             var category = db.Categories.ToList();
             ViewBag.category = new SelectList(category, "FoodCategory", "FoodCategory");
             var product = db.ProductTables.ToList();

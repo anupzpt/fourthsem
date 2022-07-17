@@ -1,0 +1,93 @@
+﻿@model ResturantSystem.Models.OrderModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    float discount = Convert.ToInt32(Model.discount);
+    int price = Convert.ToInt32(Model.ProductPrice);
+}
+
+<section class="content p-3">
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                </div>
+                <div class="mt-3">
+
+                </div>
+                <div class="mt-5">
+                    <div class="p-5">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="@Model.image" class="img-responsive" />
+                            </div>
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label><strong>Product Name:</strong></label><br />
+                                        <label><strong>Product Price:</strong></label></br>
+                                        <label><strong>Quantity:</strong></label><br />
+                                        <label><strong>Discount:</strong></label><br />
+                                        <label><strong>Total Price:</strong></label><br />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>@Model.ProductName</label><br />
+                                        <label>@Model.ProductPrice</label><br />
+                                        <label>@Model.Quantity</label><br />
+                                        <label>@Model.discount %</label><br />
+                                        <label>@(price - (discount / 100) * price)</label><br />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @using (Html.BeginForm("Order", "Ordered", FormMethod.Post, new { @class = "", @enctype = "multipart/form-data" }))
+                        {
+                            <input type="text" name="ProductId" value="@Model.ProductId" hidden />
+                            <input type="text" name="UserId" value="@Model.UserId" hidden />
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Address</label>
+                                        <input type="text" name="Address" class="form-control" id="address" aria-describedby="emailHelp" placeholder="Enter Address">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="checkbox" value="esewa" class="form-control" disabled  />
+                                        <span class="fa-solid fa-credit-card fa-3x"></span>
+
+                                    @*<input  type="checkbox" value="esewa" class="form-control" disabled />
+                                    <img src="~/uploads/esewa.png" alt="Esewa" class="img-responsive" height="100" />*@
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="checkbox" value="offline" class="form-control" name="PaymentOption" checked />
+                                    <span class="fa fa-money fa-3x"></span>
+                                        @*<img src="~/uploads/offline-payment.jpg" alt="Offine" class="img-responsive" height="100" />*@
+                                </div>
+                            </div>
+                          
+                            <div class="row text-right">
+                                <div class="col-md-12">
+                                    <a href="@Url.Action("Index","AddToCart")" type="button" class="btn btn-danger  ">Cancel</a>
+                                    <a href="@Url.Action("Index","Home")" type="button" class="btn btn-primary  ">Done</a>
+                                 
+                                </div>
+                            </div>
+                        }
+                        <div></div>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+

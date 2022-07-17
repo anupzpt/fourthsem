@@ -17,14 +17,19 @@ namespace ResturantSystem.Controllers.Admin.Customer
         // GET: Customer
         public ActionResult Index()
         {
-            var Customer = db.CustomerTables.ToList();
-            return View(Customer);
+            var Enrollment = db.Enrollments.ToList();
+            return View(Enrollment);
         }
+       
+        
+
         public ActionResult Status(int Id)
         {
-
-            var Customer = db.CustomerTables.ToList();
-            return View(Customer);
+            Enrollment data = db.Enrollments.Find(Id);
+            
+            //db.Enrollments.Remove(data);
+            //db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

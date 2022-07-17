@@ -173,17 +173,20 @@
     <Compile Include="Controllers\Admin\Categories\CategoryController.cs" />
     <Compile Include="Controllers\Admin\Customer\CustomerController.cs" />
     <Compile Include="Controllers\Admin\Discount\DiscountController.cs" />
+    <Compile Include="Controllers\Admin\Order\OrderController.cs" />
     <Compile Include="Controllers\Admin\Product\ProductController.cs" />
     <Compile Include="Controllers\Admin\ContactUS\ContactUSController.cs" />
     <Compile Include="Controllers\EnrollmentController.cs" />
     <Compile Include="Controllers\UserLoginController.cs" />
     <Compile Include="Controllers\User\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\User\AddToCartController.cs" />
     <Compile Include="Controllers\User\BlogController.cs" />
     <Compile Include="Controllers\User\ContactController.cs" />
     <Compile Include="Controllers\User\GalleryController.cs" />
     <Compile Include="Controllers\User\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\User\OrderedController.cs" />
     <Compile Include="Controllers\User\ReservationController.cs" />
     <Compile Include="Controllers\User\ResmenuController.cs" />
     <Compile Include="Global.asax.cs">
@@ -217,8 +220,19 @@
     <Compile Include="Migrations\202207150331182_Enrollment.Designer.cs">
       <DependentUpon>202207150331182_Enrollment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202207160449195_ordertable.cs" />
+    <Compile Include="Migrations\202207160449195_ordertable.Designer.cs">
+      <DependentUpon>202207160449195_ordertable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202207160649475_AddToCart.cs" />
+    <Compile Include="Migrations\202207160649475_AddToCart.Designer.cs">
+      <DependentUpon>202207160649475_AddToCart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AddToCart.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -252,6 +266,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\ProductTable.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -2483,6 +2501,11 @@
     <Content Include="Views\UserLogin\Index.cshtml" />
     <Content Include="Views\UserLogin\Welcome.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Ordered\Index.cshtml" />
+    <Content Include="Views\AddToCart\Index.cshtml" />
+    <Content Include="Views\Ordered\OrderComplete.cshtml" />
+    <Content Include="Views\AddToCart\CartEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2525,6 +2548,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202207150331182_Enrollment.resx">
       <DependentUpon>202207150331182_Enrollment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202207160449195_ordertable.resx">
+      <DependentUpon>202207160449195_ordertable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202207160649475_AddToCart.resx">
+      <DependentUpon>202207160649475_AddToCart.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -51,11 +51,12 @@
                             <h4>@data.ProductName</h4>
                             <p>@data.ProductDetail</p>
                             <h5>Rs.@data.ProductPrice</h5>
+                            <span style="color:white;font-size:20px">Rs.@data.ProductPrice</span>
+                            <a href="@Url.Action("Store","AddToCart",new {data.Id})"><span class="fa fa-shopping-cart" style="color:black;font-size:30px;margin-left:230px"></span></a>
                         </div>
                     </div>
                 </div>
             }
-
         </div>
     </div>
 </div>

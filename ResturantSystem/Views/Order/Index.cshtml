@@ -1,0 +1,82 @@
+﻿@model List<ResturantSystem.Models.Order>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int sn = 0;
+}
+
+<style>
+    .background {
+        background-color: white;
+    }
+
+    .btn {
+        font-weight: 500;
+        color: white;
+    }
+
+    .card-title {
+        font-size: 20px;
+        color: white;
+    }
+</style>
+<div class="background">
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-2 card-warning">
+                <div class="card-header">
+                    <h4 class="card-title ">Product List</h4>
+
+                    <div class="card-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <tr>
+                            <th>SN</th>
+                            <th>UserId</th>
+                            <th>ProductId</th>
+                            <th>Address</th>
+                            <th>PaymentOption</th>
+                            @*<th>Status</th>*@
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                        @foreach (var data in Model)
+                        {
+                        <tr>
+                            <td>@(++sn)</td>
+                            <td>@(data.UserId)  </td>
+                            <td>@(data.ProductId)  </td>
+                            <td>@(data.Address)  </td>
+                            <td>@(data.PaymentOption)  </td>
+                            @*<td>@(data.Status)  </td>*@
+                            <td>@(data.Date)  </td>
+                            @*<td>
+                                <a href="@Url.Action("Status", new {Id=data.Id}) " onclick="change();" id="change"><span class="fa-solid fa-circle-xmark text-green fa-2x"></span></a>
+                                <a href="@Url.Action("ViewDetail", new {Id=data.Id})"><span class="fa-solid fa-eye fa-2x"></span></a>
+                              
+                            </td>*@
+                        </tr>
+                        }
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+
+</div>
+<script>
+   
+    function change() {
+        document.getElementById("change").style.color = "red";
+    }
+</script>
+

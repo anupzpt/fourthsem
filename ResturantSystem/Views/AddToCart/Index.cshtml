@@ -1,0 +1,81 @@
+﻿@model List<ResturantSystem.Models.AddToCart>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int sn = 0;
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<section class="content p-3">
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Bordered Table</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table class="table table-bordered ">
+                        <thead>
+                            <tr>
+                                <th>SN</th>
+                                <th>Food Name</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var data in Model)
+                            {
+                            <tr>
+                                <td>@(++sn)</td>
+                                <td>@data.ProductName</td>
+                                <td>@data.Quantity</td>
+                                <td>@data.ProductPrice</td>
+                                <td>
+                                    <a href="@Url.Action("CartEdit", new {Id=data.Id})"><span class="fas fa-pencil"></span></a>
+                                    <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal_@data.Id"><span class="fas fa-trash ml-3 text-red"></span></a>
+                                    <div class="modal fade" id="exampleModal_@data.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Delete </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Do you want to Delete ?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <a type="button" href="@Url.Action("DeleteCart","AddTocart", new {Id=data.Id})" class="btn btn-danger">Confirm</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                           
+                            </tr>
+                            }
+                        </tbody>
+                        <tbody class="tbody"></tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer clearfix">
+                    <div class="row text-right">
+                        <div class="col-md-12">
+                            <a class="btn btn-primary" href="@Url.Action("Index","Ordered",new {ViewBag.UserId})">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<script src="~/Scripts/AddTocart/AddToCart.js"></script>
+
+

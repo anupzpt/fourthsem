@@ -36,7 +36,7 @@ namespace ResturantSystem.Controllers
             if (sdr.Read())
             {
                 Session["UserName"] = e.UserName.ToString();
-                if (e.UserName == "admin" && e.Password == "admin")
+                if (e.UserName == "admin" && e.Password == "admin123")
                 {
                     return this.RedirectToAction("Welcome");
                 }
@@ -70,7 +70,7 @@ namespace ResturantSystem.Controllers
             Enroll user = new Enroll();
             DataSet ds = new DataSet();
 
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-K82V98C\\SQLEXPRESS;Integrated Security=true;Initial Catalog=Resturantsystem"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-TKCK2P7\\SQLEXPRESS;Integrated Security=true;Initial Catalog=Resturantsystem"))
             {
                 using (SqlCommand cmd = new SqlCommand("select * from Enrollment", con))
                 {

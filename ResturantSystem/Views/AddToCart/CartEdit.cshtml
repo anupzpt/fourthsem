@@ -1,0 +1,62 @@
+﻿@model ResturantSystem.Models.AddToCart
+
+@{
+    ViewBag.Title = "CartEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .Design{
+        margin-top:100px;
+    }
+    .edits{
+        margin-left:400px;
+        
+    }
+    .btn{
+        margin-top:20px;
+        margin-bottom:20px;
+    }
+    fieldset{
+        align-content:center;
+    }
+   
+</style>
+
+
+@using (Html.BeginForm("EditCart", "AddToCart", FormMethod.Post))
+{
+
+
+<fieldset>
+    <legend>Edit</legend>
+    <div class="edits">
+
+
+        <input type="hidden" name="id" value="@Model.Id" />
+        <div class="edit">
+
+            <label class="Design ">Product Name:</label>
+            <br />
+            <input style="width:50%;" type="text" name="ProductName" value="@Model.ProductName" id="name" disabled />
+
+        </div>
+        <div class="edit">
+            <label>Product Price:</label>
+            <br />
+            <input style="width:50%;" type="text" name="PrdouctPrice" value="@Model.ProductPrice" id="price" disabled />
+            <br />
+        </div>
+        <div class="edit">
+            <label>Quantity:</label>
+            <br />
+            <input style="width:50%;" type="text" name="Quantity" value="@Model.Quantity" id="quantity" />
+            <br />
+        </div>
+        <div class="edit">
+            <input type="submit" class="btn btn-success" name="submit" value="Submit" id="btnUpdate" />
+
+        </div>
+    </div>
+</fieldset>
+}
+
