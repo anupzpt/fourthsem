@@ -22,6 +22,7 @@ namespace ResturantSystem.Controllers
             ViewBag.category = new SelectList(category, "FoodCategory", "FoodCategory");
             var product = db.ProductTables.ToList();
             return View(product);
+          
         }
 
         public ActionResult About()

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace ResturantSystem.Controllers.Admin.Order
 {
     public class OrderController : Controller
@@ -18,6 +19,7 @@ namespace ResturantSystem.Controllers.Admin.Order
         public ActionResult Index()
         {
             var Order = db.Orders.ToList();
+
             return View(Order);
         }
 

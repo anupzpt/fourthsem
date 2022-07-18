@@ -23,7 +23,7 @@ namespace ResturantSystem.Controllers
         [HttpPost]
         public ActionResult Index(Enroll e)
         {
-
+            Session["status"] = "0";
             String SqlCon = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             SqlConnection con = new SqlConnection(SqlCon);
             string SqlQuery = "select UserName,Password from Enrollment where UserName=@UserName and Password=@Password";
@@ -36,9 +36,13 @@ namespace ResturantSystem.Controllers
             if (sdr.Read())
             {
                 Session["UserName"] = e.UserName.ToString();
+                Session["UserId"] = e.ID.ToString();
+                Session["status"] = "1";
                 if (e.UserName == "admin" && e.Password == "admin123")
                 {
+                    Session["Username"] = e.UserName.ToString();
                     return this.RedirectToAction("Welcome");
+                  
                 }
                 else
                 {
@@ -53,11 +57,11 @@ namespace ResturantSystem.Controllers
             if (e.UserName.ToString() != null)
             {
                 Session["UserName"] = e.UserName.ToString();
-                status = "1";
+               Session["status"]  = "1";
             }
             else
             {
-                status = "3";
+                Session["status"] = "0";
             }
             con.Close();
             return View();

@@ -1,12 +1,11 @@
 ﻿@model List<ResturantSystem.Models.AddToCart>
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
     int sn = 0;
 }
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 <section class="content p-3">
     <div class="container-fluid">
         <div class="col-md-12">
@@ -24,40 +23,43 @@
                                 <th>Quantity</th>
                                 <th>Price</th>
                                 <th>Action</th>
-
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var data in Model)
                             {
-                            <tr>
-                                <td>@(++sn)</td>
-                                <td>@data.ProductName</td>
-                                <td>@data.Quantity</td>
-                                <td>@data.ProductPrice</td>
-                                <td>
-                                    <a href="@Url.Action("CartEdit", new {Id=data.Id})"><span class="fas fa-pencil"></span></a>
-                                    <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal_@data.Id"><span class="fas fa-trash ml-3 text-red"></span></a>
-                                    <div class="modal fade" id="exampleModal_@data.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Delete </h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    Do you want to Delete ?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <a type="button" href="@Url.Action("DeleteCart","AddTocart", new {Id=data.Id})" class="btn btn-danger">Confirm</a>
+                                <tr>
+                                    <td>@(++sn)</td>
+                                    <td>@data.ProductName</td>
+                                    <td>@data.Quantity</td>
+                                    <td>@data.ProductPrice</td>
+                                    <td>
+                                        <a href="@Url.Action("CartEdit", new {Id=data.Id})"><span class="fas fa-pencil"></span></a>
+
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="fas fa-trash ml-3 text-red" style="border:none;background-color:transparent" data-toggle="modal"  data-bs-target="#exampleModal"></button>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Remove @data.ProductName From Cart ??
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <a type="button" href="@Url.Action("DeleteCart","AddTocart", new {Id=data.Id})" class="btn btn-danger">Confirm</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </td>
-                           
-                            </tr>
+                                    </td>
+                                </tr>
                             }
                         </tbody>
                         <tbody class="tbody"></tbody>
@@ -76,6 +78,8 @@
         </div>
     </div>
 </section>
-<script src="~/Scripts/AddTocart/AddToCart.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 

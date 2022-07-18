@@ -55,8 +55,8 @@
                                 <td>@(data.FoodCategory)  </td>
                                 <td>
                                     <a href="@Url.Action("Edit", new {Id=data.Id})"><span class="fas fa-pencil"></span></a>
-                                    <a type="button" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="fas fa-trash ml-3 text-red"></span></a>
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <a type="button" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal_@data.Id"><span class="fas fa-trash ml-3 text-red"></span></a>
+                                    <div class="modal fade" id="exampleModal_@data.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -68,7 +68,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <input  type="text" value="@data.Id"/>
+                                                    
                                                     <a type="button" href="@Url.Action("Deletedata", new {Id=data.Id })" class="btn btn-danger">Confirm</a>
                                                 </div>
                                             </div>

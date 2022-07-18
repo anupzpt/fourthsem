@@ -1,6 +1,7 @@
 ﻿using ResturantSystem.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
@@ -23,10 +24,25 @@ namespace ResturantSystem.Controllers.User
         // GET: AddToCart
         public ActionResult Index()
         {
-            List<AddToCart> all_data = db.AddToCarts.ToList();
-            ViewBag.UserId = '1';
-            return View(all_data);
-
+            List<AddToCart> cartList = new List<AddToCart>();
+            ViewBag.UserId = Session["UserId"];
+            var userId = Session["UserId"];
+            con.Open();
+            string query = "SELECT * FROM AddToCart";// Where CONVERT(VARCHAR,UserId)='" + userId+ "'";
+            SqlDataAdapter sda = new SqlDataAdapter(query, con);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                AddToCart cart = new AddToCart();
+                cart.Id =Convert.ToInt32( dt.Rows[i]["Id"]);
+                cart.ProductId = Convert.ToInt32(dt.Rows[i]["ProductId"]);
+                cart.ProductName = dt.Rows[i]["ProductName"].ToString();
+                cart.ProductPrice = dt.Rows[i]["ProductPrice"].ToString();
+                cart.Quantity = dt.Rows[i]["Quantity"].ToString();
+                cartList.Add(cart);
+            }
+            return View(cartList);
         }
       
         public ActionResult Store(int Id)
@@ -54,12 +70,11 @@ namespace ResturantSystem.Controllers.User
 
         // POST: Admin/Edit/5
         [HttpPost]
-        public ActionResult EditCart(AddToCart Id)
+        public ActionResult EditCart(AddToCart cart)
         {
-            var Addtocart = db.AddToCarts.Find(Id);
-            var cart = new AddToCart();
+           
             con.Open();
-            string query = "Update dbo.AddToCart set Quantity='" + cart.Quantity  + "' Where CONVERT (VARCHAR , ProductId)='" + cart.ProductId + "'";
+            string query = "Update AddToCart set Quantity='" + cart.Quantity  + "' Where CONVERT (VARCHAR , Id)='" + cart.Id + "'";
             SqlDataAdapter sda = new SqlDataAdapter(query, con);
             sda.SelectCommand.ExecuteNonQuery();
             return RedirectToAction("Index");
@@ -71,9 +86,11 @@ namespace ResturantSystem.Controllers.User
         }
         public ActionResult DeleteCart(int Id)
         {
-            AddToCart data = db.AddToCarts.Find(Id);
-            db.AddToCarts.Remove(data);
-            db.SaveChanges();
+            con.Open();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "Delete from dbo.AddToCart where CONVERT(VARCHAR, Id)='" + Id + "'";
+            cmd.ExecuteNonQuery();
             return RedirectToAction("Index");
         }
     }

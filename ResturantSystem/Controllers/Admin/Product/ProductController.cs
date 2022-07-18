@@ -21,6 +21,7 @@ namespace ResturantSystem.Controllers.Product
         {
             var Product = db.ProductTables.ToList();
             return View(Product);
+
         }
         // GET: Product/Details/5
         public ActionResult Details(int id)

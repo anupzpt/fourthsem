@@ -72,7 +72,27 @@
                         </li>
                         <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Contact")">Contact</a></li>
                         <li class="nav-item"><a class="nav-link" href="@Url.Action("Index","UserLogin")">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index","AddToCart")"><span class="fa fa-shopping-cart fa-1x"><span class="text-danger ">@ViewBag.cart</span></span></a></li>
+                        <li class="nav-item">
+                            @if (Session["Status"] == "1")
+                            {
+                                <a class="nav-link" href="@Url.Action("Index","AddToCart")">
+                                    <span class="fa fa-shopping-cart fa-1x">
+                                        <span class="text-danger ">@ViewBag.cart</span>
+                                    </span>
+                                </a>
+
+                            }
+                            else
+                            {
+                                <a class="nav-link" href="@Url.Action("Index","AddToCart")">
+                                    <span class="fa fa-shopping-cart fa-1x">
+                                     
+                                    </span>
+                                </a>
+                          
+                            }
+                        </li>
+                       
                     </ul>
                 </div>
             </div>

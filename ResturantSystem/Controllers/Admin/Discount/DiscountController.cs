@@ -44,7 +44,6 @@ namespace ResturantSystem.Controllers.Admin.Discount
             ViewData["Categories"] = new SelectList(Categories, "FoodCategory", "FoodCategory");
             var productTables = db.ProductTables.ToList();
             ViewData["productTables"] = new SelectList(productTables, "ProductName", "ProductName");
-
             DiscountTable data = db.DiscountTables.Find(Id);
             return View(data);
           

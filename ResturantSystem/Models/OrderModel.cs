@@ -14,5 +14,11 @@ namespace ResturantSystem.Models
         public string Quantity { get; set; }
         public string image { get; set; }
         public string discount { get; set; }
+        /// <summary>
+        /// //////////////////////
+        /// </summary>
+        public Order orderdatails { get; set; }
+        public Enrollment enrollmentdetails { get; set; }
+        public ProductTable productdetails { get; set; }
     }
 }

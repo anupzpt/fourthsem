@@ -41,9 +41,10 @@
                             <th>SN</th>
                             <th>UserId</th>
                             <th>ProductId</th>
+                            <th>ProductName</th>
                             <th>Address</th>
                             <th>PaymentOption</th>
-                            @*<th>Status</th>*@
+                         
                             <th>Date</th>
                             <th>Action</th>
                         </tr>
@@ -58,10 +59,10 @@
                             @*<td>@(data.Status)  </td>*@
                             <td>@(data.Date)  </td>
                             @*<td>
-                                <a href="@Url.Action("Status", new {Id=data.Id}) " onclick="change();" id="change"><span class="fa-solid fa-circle-xmark text-green fa-2x"></span></a>
-                                <a href="@Url.Action("ViewDetail", new {Id=data.Id})"><span class="fa-solid fa-eye fa-2x"></span></a>
-                              
-                            </td>*@
+            <a href="@Url.Action("Status", new {Id=data.Id}) " onclick="change();" id="change"><span class="fa-solid fa-circle-xmark text-green fa-2x"></span></a>
+            <a href="@Url.Action("ViewDetail", new {Id=data.Id})"><span class="fa-solid fa-eye fa-2x"></span></a>
+
+        </td>*@
                         </tr>
                         }
                     </table>
