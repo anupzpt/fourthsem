@@ -21,7 +21,7 @@ namespace ResturantSystem.Controllers.Admin.Discount
             var discount = db.DiscountTables.ToList();
             return View(discount);
         }
-     public ActionResult AddDiscount()
+        public ActionResult AddDiscount()
         {
             var Categories = db.Categories.ToList();
             ViewBag.Categories = new SelectList(Categories, "FoodCategory", "FoodCategory");
@@ -46,7 +46,7 @@ namespace ResturantSystem.Controllers.Admin.Discount
             ViewData["productTables"] = new SelectList(productTables, "ProductName", "ProductName");
             DiscountTable data = db.DiscountTables.Find(Id);
             return View(data);
-          
+
         }
 
         // POST: Admin/Edit/5
@@ -71,6 +71,23 @@ namespace ResturantSystem.Controllers.Admin.Discount
             db.DiscountTables.Remove(data);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+
+        //uta bata yo action call hunxa esma chai hamle FoodCategory anusar product data leko xam 
+        public JsonResult GetProductByCategoryId(string FoodCategory)
+        {
+            List<ProductTable> ProductTable = db.ProductTables.Where(x => x.FoodCategory == FoodCategory).ToList();
+
+            if (ProductTable == null)
+            {
+                return Json(new
+                {
+                    Success = false,
+                },
+                JsonRequestBehavior.AllowGet);
+            }
+            return Json(ProductTable, JsonRequestBehavior.AllowGet); // esma aako data Json format ma return hunxa
         }
     }
 }
