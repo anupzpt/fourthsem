@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <!-- Basic -->
 <head>
@@ -52,7 +53,16 @@
     <header class="top-navbar">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="@Url.Action("Index","Home")">
+                @{
+                    var info = Session["UserName"];
+                }
+                <i class="bi bi-person-badge-fill"></i>
+
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                    @if (@info != null && @info.ToString() != "")
+                    {
+                        @info
+                    }
                     <img src="~/Content/resturant/images/logo.png" alt="" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,18 +70,21 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbars-rs-food">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index","Home")">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Resmenu","Resmenu")">Menu</a></li>
-                        <li class="nav-item"><a class="nav-link" href="@Url.Action("About","About")">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Home")">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Resmenu", "Resmenu")">Menu</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("About", "About")">About</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                                <a class="dropdown-item" href="@Url.Action("Reservation","Reservation")">Reservation</a>
-                                <a class="dropdown-item" href="@Url.Action("Gallery","Gallery")">Gallery</a>
+                                <a class="dropdown-item" href="@Url.Action("Reservation", "Reservation")">Reservation</a>
+                                <a class="dropdown-item" href="@Url.Action("Gallery", "Gallery")">Gallery</a>
                             </div>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Contact")">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index","UserLogin")">Login</a></li>
+                         @if (@info == null || @info.ToString() == "")
+                        {
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "UserLogin")">Login</a></li>
+                        }
                         <li class="nav-item">
                             @if (Session["Status"] == "1")
                             {
@@ -92,6 +105,10 @@
                           
                             }
                         </li>
+                         @if (@info == null || @info.ToString() == "")
+                        {
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "UserLogin")">Login</a></li>
+                        }
                        
                     </ul>
                 </div>
