@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     @*<link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />*@
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -56,13 +57,7 @@
                 @{
                     var info = Session["UserName"];
                 }
-                <i class="bi bi-person-badge-fill"></i>
-
                 <a class="navbar-brand" href="@Url.Action("Index", "Home")">
-                    @if (@info != null && @info.ToString() != "")
-                    {
-                        @info
-                    }
                     <img src="~/Content/resturant/images/logo.png" alt="" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,7 +76,7 @@
                             </div>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Contact")">Contact</a></li>
-                         @if (@info == null || @info.ToString() == "")
+                        @if (@info == null || @info.ToString() == "")
                         {
                             <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "UserLogin")">Login</a></li>
                         }
@@ -99,21 +94,28 @@
                             {
                                 <a class="nav-link" href="@Url.Action("Index","AddToCart")">
                                     <span class="fa fa-shopping-cart fa-1x">
-                                     
+
                                     </span>
                                 </a>
-                          
+
                             }
                         </li>
-                         @if (@info == null || @info.ToString() == "")
+                        @if (@info != null && @info.ToString() != "")
                         {
-                            <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "UserLogin")">Login</a></li>
+                            <li><a class="btn btn-danger" href="@Url.Action("Logout", "UserLogin")" role="button">Logout</a></li>
                         }
-                       
+                    <li>
+                        &nbsp &nbsp&nbsp
+                        <i class="bi bi-person-badge-fill"></i>
+                        @if (@info != null && @info.ToString() != "")
+                        {
+                            @info
+                        }
+                    </li>
                     </ul>
                 </div>
             </div>
-        </nav>
+</nav>
     </header>
 
     @RenderBody()

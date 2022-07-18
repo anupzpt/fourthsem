@@ -78,7 +78,7 @@ namespace ResturantSystem.Controllers
             Enroll user = new Enroll();
             DataSet ds = new DataSet();
 
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-K82V98C\\SQLEXPRESS;Integrated Security=true;Initial Catalog=Resturantsystem"))
+            using (SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS;Integrated Security=true;Initial Catalog=Resturantsystem"))
             {
                 using (SqlCommand cmd = new SqlCommand("select * from Enrollment", con))
                 {
